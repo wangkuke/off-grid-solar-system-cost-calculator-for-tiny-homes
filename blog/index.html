@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny Home Solar Blog | Expert Guides, Reviews & Comparisons</title>
+    <meta name="description" content="Complete collection of tiny home solar guides, battery comparisons, cost analyses, and expert reviews. Everything you need for off-grid living.">
+    <meta name="keywords" content="tiny home solar blog, off-grid living guides, solar battery reviews, solar installation tips, renewable energy blog">
+    <meta name="author" content="Tiny Home Solar Experts">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #4CAF50;
+            --primary-dark: #1B5E20;
+            --secondary: #FF9800;
+            --secondary-light: #FFB74D;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航样式 */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .main-nav {
+            background-color: var(--primary-dark);
+            padding: 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+        }
+        
+        /* 博客主页头部 */
+        .blog-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .blog-title {
+            font-size: 42px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .blog-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 30px auto 0;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        /* 博客内容布局 */
+        .blog-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        @media (max-width: 992px) {
+            .blog-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 文章网格 */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .article-image {
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary);
+        }
+        
+        .article-image.batteries {
+            background-color: #E8F5E9;
+        }
+        
+        .article-image.sizing {
+            background-color: #E3F2FD;
+        }
+        
+        .article-image.cost {
+            background-color: #FFF3E0;
+        }
+        
+        .article-image.reviews {
+            background-color: #F3E5F5;
+        }
+        
+        .article-image.comparisons {
+            background-color: #FFEBEE;
+        }
+        
+        .article-image.guides {
+            background-color: #E0F2F1;
+        }
+        
+        .article-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-category {
+            display: inline-block;
+            background-color: var(--light-gray);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .article-category.batteries {
+            background-color: #C8E6C9;
+            color: var(--primary-dark);
+        }
+        
+        .article-category.sizing {
+            background-color: #BBDEFB;
+            color: #1565C0;
+        }
+        
+        .article-category.cost {
+            background-color: #FFE0B2;
+            color: #EF6C00;
+        }
+        
+        .article-category.reviews {
+            background-color: #E1BEE7;
+            color: #7B1FA2;
+        }
+        
+        .article-category.comparisons {
+            background-color: #FFCDD2;
+            color: #C62828;
+        }
+        
+        .article-category.guides {
+            background-color: #B2DFDB;
+            color: #00796B;
+        }
+        
+        .article-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .article-title a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .article-title a:hover {
+            color: var(--primary);
+        }
+        
+        .article-excerpt {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-gray);
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+        
+        .read-more:hover {
+            gap: 10px;
+        }
+        
+        /* 特色文章 */
+        .featured-article {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .featured-content {
+            padding: 40px;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .featured-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .featured-title a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .featured-excerpt {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        
+        /* 侧边栏 */
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+        
+        .sidebar-widget h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .categories-list {
+            list-style: none;
+        }
+        
+        .categories-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .categories-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .categories-list a {
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .categories-list a:hover {
+            color: var(--primary);
+        }
+        
+        .category-count {
+            background-color: var(--light-gray);
+            color: var(--gray);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        
+        .popular-articles {
+            list-style: none;
+        }
+        
+        .popular-articles li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .popular-articles li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .popular-articles a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            transition: color 0.3s;
+        }
+        
+        .popular-articles a:hover {
+            color: var(--primary);
+        }
+        
+        .popular-date {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .newsletter-box {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .newsletter-box h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-box p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-box input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        /* 分页 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            gap: 10px;
+        }
+        
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--dark);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .page-link:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .page-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .page-link.prev, .page-link.next {
+            width: auto;
+            padding: 0 15px;
+            gap: 5px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .blog-title {
+                font-size: 32px;
+            }
+        }
+        
+        /* 分类筛选 */
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: white;
+            color: var(--dark);
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* 计算器提示 */
+        .calculator-cta {
+            background-color: #FFF3E0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            border-left: 4px solid var(--secondary);
+            text-align: center;
+        }
+        
+        .calculator-cta h3 {
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #F57C00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Schema.org markup for blog -->
+    <div class="schema-markup" style="display: none;">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "headline": "Tiny Home Solar Blog",
+          "description": "Expert guides, reviews and comparisons for tiny home solar systems and off-grid living",
+          "url": "https://tinyhomesolarcalculator.com/blog/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Tiny Home Solar Calculator",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://tinyhomesolarcalculator.com/logo.png"
+            }
+          }
+        }
+        </script>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-solar-panel"></i>
+                        <div>
+                            <h1>Tiny Home Solar <span>Calculator</span></h1>
+                            <p class="tagline">Calculate your off-grid solar system costs</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="brand-logos">
+                    <div class="brand-logo">EcoFlow</div>
+                    <div class="brand-logo">Battle Born</div>
+                    <div class="brand-logo">Renogy</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../index.html#solarCalculator"><i class="fas fa-calculator"></i> Calculator</a></li>
+                <li><a href="index.html" class="active"><i class="fas fa-book"></i> Solar Blog</a></li>
+                <li><a href="best-offgrid-solar-kits-for-tiny-homes-2025.html"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 博客头部 -->
+    <div class="blog-header">
+        <div class="container">
+            <h1 class="blog-title">Tiny Home Solar Blog</h1>
+            <p class="blog-subtitle">Expert guides, in-depth comparisons, and practical tips for off-grid solar power in tiny homes. Everything you need to design your perfect solar system.</p>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Search solar guides, reviews, and comparisons...">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 博客内容 -->
+    <div class="container">
+        <!-- 分类筛选 -->
+        <div class="category-filters">
+            <button class="filter-btn active" data-filter="all">All Articles</button>
+            <button class="filter-btn" data-filter="batteries">Batteries</button>
+            <button class="filter-btn" data-filter="sizing">Sizing & Calculation</button>
+            <button class="filter-btn" data-filter="cost">Cost Analysis</button>
+            <button class="filter-btn" data-filter="reviews">Product Reviews</button>
+            <button class="filter-btn" data-filter="comparisons">Comparisons</button>
+            <button class="filter-btn" data-filter="guides">Installation Guides</button>
+        </div>
+        
+        <!-- 特色文章 -->
+        <div class="featured-article">
+            <div class="container">
+                <div class="featured-content">
+                    <span class="featured-badge">Featured Guide</span>
+                    <h2 class="featured-title"><a href="lifepo4-vs-lead-acid-for-offgrid-living.html">LiFePO4 vs. Lead Acid: Which is Better for Off-grid Living?</a></h2>
+                    <p class="featured-excerpt">Complete technical and practical comparison of LiFePO4 and Lead Acid batteries for tiny home solar systems. Learn which technology is best for your off-grid lifestyle.</p>
+                    <a href="lifepo4-vs-lead-acid-for-offgrid-living.html" class="btn btn-secondary">Read Complete Guide</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 计算器提示 -->
+        <div class="calculator-cta">
+            <h3><i class="fas fa-calculator"></i> Need a Custom Solar System Design?</h3>
+            <p>Our solar calculator creates a personalized system design based on your specific tiny home, location, and energy needs.</p>
+            <a href="../index.html#solarCalculator" class="btn btn-primary">Use Solar Calculator</a>
+        </div>
+        
+        <div class="blog-content">
+            <!-- 主文章网格 -->
+            <div class="articles-container">
+                <h2 style="color: var(--primary); margin-bottom: 20px;">Latest Solar Guides & Reviews</h2>
+                
+                <div class="articles-grid">
+                    <!-- 文章1 -->
+                    <div class="article-card" data-category="comparisons batteries">
+                        <div class="article-image comparisons">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category comparisons">Battery Comparison</span>
+                            <h3 class="article-title"><a href="EcoFlow-Delta-Pro-vs-Tesla-Powerwall-for-Tiny-Homes.html">EcoFlow Delta Pro vs Tesla Powerwall: Best for Tiny Homes</a></h3>
+                            <p class="article-excerpt">Detailed comparison of portable power station vs whole-home battery for tiny homes. Analyze performance, cost, installation, and suitability.</p>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i> June 20, 2026</span>
+                                <span><i class="far fa-clock"></i> 14 min read</span>
+                            </div>
+                            <a href="EcoFlow-Delta-Pro-vs-Tesla-Powerwall-for-Tiny-Homes.html" class="read-more">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 文章2 -->
+                    <div class="article-card" data-category="sizing batteries">
+                        <div class="article-image sizing">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category sizing">Battery Sizing</span>
+                            <h3 class="article-title"><a href="solar-battery-sizing-guide-for-tiny-homes.html">Solar Battery Sizing Guide for Tiny Homes</a></h3>
+                            <p class="article-excerpt">Step-by-step guide to calculate the perfect battery bank size for your tiny home. Avoid costly mistakes by properly sizing your energy storage.</p>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i> April 15, 2026</span>
+                                <span><i class="far fa-clock"></i> 10 min read</span>
+                            </div>
+                            <a href="solar-battery-sizing-guide-for-tiny-homes.html" class="read-more">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 文章3 -->
+                    <div class="article-card" data-category="cost guides">
+                        <div class="article-image cost">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category cost">Cost Analysis</span>
+                            <h3 class="article-title"><a href="off-grid-solar-installation-cost-breakdown.html">Off-grid Solar Installation Cost Breakdown</a></h3>
+                            <p class="article-excerpt">Complete 2026 cost breakdown for off-grid solar systems. Learn what each component costs and how to budget for your tiny home installation.</p>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i> May 10, 2026</span>
+                                <span><i class="far fa-clock"></i> 15 min read</span>
+                            </div>
+                            <a href="off-grid-solar-installation-cost-breakdown.html" class="read-more">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 文章4 -->
+                    <div class="article-card" data-category="reviews">
+                        <div class="article-image reviews">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category reviews">Product Review</span>
+                            <h3 class="article-title"><a href="best-offgrid-solar-kits-for-tiny-homes-2025.html">Best Off-grid Solar Kits for Tiny Homes 2025</a></h3>
+                            <p class="article-excerpt">Comprehensive review of top solar kits for tiny homes. Compare all-in-one systems, modular setups, and find the perfect kit for your needs.</p>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i> January 5, 2025</span>
+                                <span><i class="far fa-clock"></i> 12 min read</span>
+                            </div>
+                            <a href="best-offgrid-solar-kits-for-tiny-homes-2025.html" class="read-more">Read Review <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 文章5 -->
+                    <div class="article-card" data-category="sizing guides">
+                        <div class="article-image guides">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category guides">System Sizing</span>
+                            <h3 class="article-title"><a href="how-many-solar-panels-for-250-sq-ft-tiny-house.html">How Many Solar Panels for a 250 sq ft Tiny House?</a></h3>
+                            <p class="article-excerpt">Detailed guide to calculate solar panel requirements for small tiny homes. Includes location factors, energy needs, and real-world examples.</p>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i> February 18, 2026</span>
+                                <span><i class="far fa-clock"></i> 8 min read</span>
+                            </div>
+                            <a href="how-many-solar-panels-for-250-sq-ft-tiny-house.html" class="read-more">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 文章6 -->
+                    <div class="article-card" data-category="comparisons batteries">
+                        <div class="article-image batteries">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category batteries">Battery Comparison</span>
+                            <h3 class="article-title"><a href="lifepo4-vs-lead-acid-for-offgrid-living.html">LiFePO4 vs. Lead Acid: Complete Battery Comparison</a></h3>
+                            <p class="article-excerpt">In-depth comparison of LiFePO4 vs Lead Acid batteries for off-grid tiny homes. Analyze cost, lifespan, maintenance, and performance.</p>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i> March 5, 2026</span>
+                                <span><i class="far fa-clock"></i> 12 min read</span>
+                            </div>
+                            <a href="lifepo4-vs-lead-acid-for-offgrid-living.html" class="read-more">Read Comparison <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 分页 -->
+                <div class="pagination">
+                    <a href="#" class="page-link prev"><i class="fas fa-chevron-left"></i> Previous</a>
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <span>...</span>
+                    <a href="#" class="page-link">5</a>
+                    <a href="#" class="page-link next">Next <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- 侧边栏 -->
+            <div class="article-sidebar">
+                <!-- 分类 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-folder"></i> Categories</h3>
+                    <ul class="categories-list">
+                        <li>
+                            <a href="#" data-filter="batteries">
+                                <span>Batteries & Storage</span>
+                                <span class="category-count">3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter="sizing">
+                                <span>System Sizing</span>
+                                <span class="category-count">2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter="cost">
+                                <span>Cost & Budgeting</span>
+                                <span class="category-count">1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter="reviews">
+                                <span>Product Reviews</span>
+                                <span class="category-count">1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter="comparisons">
+                                <span>Comparisons</span>
+                                <span class="category-count">2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-filter="guides">
+                                <span>Installation Guides</span>
+                                <span class="category-count">2</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 热门文章 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-fire"></i> Popular Guides</h3>
+                    <ul class="popular-articles">
+                        <li>
+                            <a href="lifepo4-vs-lead-acid-for-offgrid-living.html">LiFePO4 vs. Lead Acid Batteries</a>
+                            <div class="popular-date">March 5, 2026</div>
+                        </li>
+                        <li>
+                            <a href="off-grid-solar-installation-cost-breakdown.html">Solar Installation Cost Breakdown</a>
+                            <div class="popular-date">May 10, 2026</div>
+                        </li>
+                        <li>
+                            <a href="EcoFlow-Delta-Pro-vs-Tesla-Powerwall-for-Tiny-Homes.html">EcoFlow Delta Pro vs Tesla Powerwall</a>
+                            <div class="popular-date">June 20, 2026</div>
+                        </li>
+                        <li>
+                            <a href="solar-battery-sizing-guide-for-tiny-homes.html">Battery Sizing Guide</a>
+                            <div class="popular-date">April 15, 2026</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 计算器提示 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-calculator"></i> Solar Calculator</h3>
+                    <p>Design your perfect solar system with our interactive calculator. Get personalized component recommendations and cost estimates.</p>
+                    <a href="../index.html#solarCalculator" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Use Solar Calculator</a>
+                </div>
+                
+                <!-- 通讯订阅 -->
+                <div class="sidebar-widget">
+                    <div class="newsletter-box">
+                        <h4>Stay Updated</h4>
+                        <p>Get the latest tiny home solar guides and tips delivered to your inbox.</p>
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn btn-secondary" style="width: 100%;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 相关服务 -->
+        <div style="background-color: white; border-radius: 12px; padding: 30px; margin-top: 40px; box-shadow: var(--shadow); text-align: center;">
+            <h2 style="color: var(--primary); margin-bottom: 15px;">Need Professional Help?</h2>
+            <p style="margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Our network of certified solar installers can help design and install your perfect tiny home solar system.</p>
+            <a href="../index.html#solarCalculator" class="btn btn-primary" style="margin-right: 10px;">Calculate My System</a>
+            <a href="#" class="btn btn-secondary">Find Installers</a>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2026 Tiny Home Solar Calculator. All guides are for informational purposes only. Always consult with professionals for your specific project.</p>
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: white; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: white; text-decoration: none;">Terms of Use</a>
+                    <a href="#" style="color: white; text-decoration: none;">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 分类筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const articleCards = document.querySelectorAll('.article-card');
+            const categoryLinks = document.querySelectorAll('.categories-list a');
+            
+            // 筛选按钮点击事件
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // 更新活动按钮
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 筛选文章
+                    articleCards.forEach(card => {
+                        const categories = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || categories.includes(filterValue)) {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // 侧边栏分类链接点击事件
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // 找到对应的筛选按钮并点击
+                    filterButtons.forEach(button => {
+                        if (button.getAttribute('data-filter') === filterValue) {
+                            button.click();
+                        }
+                    });
+                    
+                    // 滚动到文章区域
+                    document.querySelector('.articles-container').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // 搜索功能（简单实现）
+            const searchInput = document.querySelector('.search-box input');
+            const searchButton = document.querySelector('.search-box button');
+            
+            searchButton.addEventListener('click', function() {
+                performSearch();
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                if (searchTerm.trim() === '') {
+                    // 显示所有文章
+                    articleCards.forEach(card => {
+                        card.style.display = 'flex';
+                    });
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                    return;
+                }
+                
+                // 筛选文章
+                articleCards.forEach(card => {
+                    const title = card.querySelector('.article-title a').textContent.toLowerCase();
+                    const excerpt = card.querySelector('.article-excerpt').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // 更新筛选按钮状态
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+            }
+            
+            // 分页点击事件
+            const pageLinks = document.querySelectorAll('.page-link:not(.prev):not(.next)');
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    pageLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

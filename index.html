@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off Grid Solar System Cost Calculator for Tiny Homes (2026 Guide)</title>
+    <meta name="description" content="Calculate your tiny home off-grid solar system cost with our free calculator. Get detailed estimates for solar panels, batteries, inverters, and installation. Compare EcoFlow, Tesla Powerwall, and other solar solutions for tiny houses.">
+    <meta name="keywords" content="off grid solar system cost calculator, tiny home solar system, solar calculator for tiny houses, off grid solar cost, tiny home solar panels, solar battery for tiny house, EcoFlow, Tesla Powerwall, solar installation cost">
+    <meta name="author" content="Tiny Home Solar Experts">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #4CAF50;
+            --primary-dark: #1B5E20;
+            --secondary: #FF9800;
+            --secondary-light: #FFB74D;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            margin-left: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .nav-links i {
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+        }
+        
+        /* Main content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Calculator Section */
+        .calculator-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            color: white;
+            padding: 20px;
+        }
+        
+        .section-header h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .calculator-container {
+            padding: 25px;
+        }
+        
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .input-with-unit {
+            position: relative;
+        }
+        
+        .input-with-unit input, .input-with-unit select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .input-with-unit input:focus, .input-with-unit select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+        
+        .unit {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .slider-container {
+            margin-top: 10px;
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--light-gray);
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+        }
+        
+        .location-detect {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .location-detect-btn {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        
+        .location-detect-btn:hover {
+            background-color: #bbdefb;
+        }
+        
+        .location-result {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .appliance-list {
+            grid-column: 1 / -1;
+            margin-top: 10px;
+        }
+        
+        .appliance-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background-color: var(--light);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .appliance-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .appliance-power {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .add-appliance {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .add-appliance input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #F57C00;
+        }
+        
+        .btn-block {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* Results Section */
+        .results-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        .results-container {
+            padding: 25px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-weight: 600;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        
+        .highlight {
+            background-color: #E8F5E9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .total-cost {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .cost-breakdown {
+            margin-top: 25px;
+        }
+        
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        /* SEO Content Section */
+        .content-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        .content-container {
+            padding: 25px;
+        }
+        
+        .content-container h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .content-container h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            font-size: 20px;
+        }
+        
+        .content-container p {
+            margin-bottom: 15px;
+        }
+        
+        .content-container ul, .content-container ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-container li {
+            margin-bottom: 8px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        .faq-container {
+            padding: 25px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .faq-question i {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+        
+        .faq-answer {
+            color: var(--dark);
+        }
+        
+        /* Ads Section */
+        .ads-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .ad-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ad-label {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .ad-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        .ad-placeholder i {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #adb5bd;
+        }
+        
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .brand-logo {
+            width: 80px;
+            height: 40px;
+            background-color: white;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: var(--dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Info Section */
+        .info-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .info-content {
+            padding: 25px;
+        }
+        
+        .info-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .info-content p {
+            margin-bottom: 15px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .tip {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .tip h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        .copyright {
+            color: #adb5bd;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-light);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .calculator-container, .results-container, .info-content, .faq-container, .content-container {
+                padding: 20px 15px;
+            }
+        }
+        
+        .schema-markup {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Schema.org markup for rich snippets -->
+    <div class="schema-markup">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Tiny Home Off-Grid Solar System Cost Calculator",
+          "description": "Free calculator to estimate the cost of an off-grid solar system for tiny homes. Calculate solar panel requirements, battery storage, and installation costs.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Tiny Home Solar Experts"
+          }
+        }
+        </script>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-solar-panel"></i>
+                    <div>
+                        <h1>Tiny Home Solar <span>Calculator</span></h1>
+                        <p class="tagline">Calculate your off-grid solar system costs for tiny homes</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#solarCalculator"><i class="fas fa-calculator"></i> Calculator</a></li>
+                        <li><a href="blog/index.html"><i class="fas fa-book"></i> Solar Blog</a></li>
+                        <li><a href="blog/best-offgrid-solar-kits-for-tiny-homes-2025.html"><i class="fas fa-star"></i> Reviews</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Left Column: Calculator and Results -->
+            <div class="left-column">
+                <!-- Calculator Section -->
+                <section class="calculator-section">
+                    <div class="section-header">
+                        <h2>Off-Grid Solar System Cost Calculator for Tiny Homes</h2>
+                        <p>Enter your energy needs to calculate system cost for your tiny home</p>
+                    </div>
+                    <div class="calculator-container">
+                        <form id="solarCalculator" class="calculator-form">
+                            <!-- Tiny Home Size -->
+                            <div class="form-group">
+                                <label for="homeSize">Tiny Home Size (sq ft)</label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="homeSize" min="100" max="500" step="10" value="250">
+                                    <span class="unit">sq ft</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" id="homeSizeSlider" min="100" max="500" step="10" value="250">
+                                    <div class="slider-value" id="homeSizeValue">250 sq ft</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Daily Energy Usage -->
+                            <div class="form-group">
+                                <label for="dailyUsage">Daily Energy Usage (kWh)</label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="dailyUsage" min="2" max="30" step="0.5" value="8.5">
+                                    <span class="unit">kWh</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" id="dailyUsageSlider" min="2" max="30" step="0.5" value="8.5">
+                                    <div class="slider-value" id="dailyUsageValue">8.5 kWh</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sunlight Hours with Location Detection -->
+                            <div class="form-group">
+                                <label for="sunlightHours">Daily Peak Sun Hours</label>
+                                <div class="input-with-unit">
+                                    <select id="sunlightHours">
+                                        <option value="2">Low (2 hrs) - Pacific Northwest, Alaska</option>
+                                        <option value="3">Moderate (3 hrs) - Northeast, Midwest</option>
+                                        <option value="4" selected>Average (4 hrs) - Mid-Atlantic, Some Southern States</option>
+                                        <option value="5">Good (5 hrs) - Southwest, Mountain States</option>
+                                        <option value="6">Excellent (6+ hrs) - Arizona, Nevada, California Deserts</option>
+                                    </select>
+                                </div>
+                                <div class="location-detect">
+                                    <button type="button" id="detectLocationBtn" class="location-detect-btn">
+                                        <i class="fas fa-location-arrow"></i> Auto-Detect My Sun Hours
+                                    </button>
+                                    <div class="location-result" id="locationResult"></div>
+                                </div>
+                                <p style="font-size: 13px; color: var(--gray); margin-top: 5px;">Peak sun hours vary by location. Use auto-detect or <a href="#" id="sunHoursGuideLink">check our state-by-state guide</a>.</p>
+                            </div>
+                            
+                            <!-- Battery Backup Days -->
+                            <div class="form-group">
+                                <label for="backupDays">Battery Backup Days</label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="backupDays" min="1" max="7" step="0.5" value="2">
+                                    <span class="unit">days</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" id="backupDaysSlider" min="1" max="7" step="0.5" value="2">
+                                    <div class="slider-value" id="backupDaysValue">2 days</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Appliance List -->
+                            <div class="form-group appliance-list">
+                                <label>Common Appliances for Tiny Homes</label>
+                                <div id="applianceContainer">
+                                    <div class="appliance-item">
+                                        <div class="appliance-info">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <span>LED Lighting</span>
+                                        </div>
+                                        <div class="appliance-power">0.2 kWh/day</div>
+                                    </div>
+                                    <div class="appliance-item">
+                                        <div class="appliance-info">
+                                            <i class="fas fa-laptop"></i>
+                                            <span>Laptop & Phone Charging</span>
+                                        </div>
+                                        <div class="appliance-power">0.5 kWh/day</div>
+                                    </div>
+                                    <div class="appliance-item">
+                                        <div class="appliance-info">
+                                            <i class="fas fa-fan"></i>
+                                            <span>Ventilation Fan</span>
+                                        </div>
+                                        <div class="appliance-power">0.8 kWh/day</div>
+                                    </div>
+                                    <div class="appliance-item">
+                                        <div class="appliance-info">
+                                            <i class="fas fa-blender"></i>
+                                            <span>Small Kitchen Appliances</span>
+                                        </div>
+                                        <div class="appliance-power">1.5 kWh/day</div>
+                                    </div>
+                                    <div class="appliance-item">
+                                        <div class="appliance-info">
+                                            <i class="fas fa-snowflake"></i>
+                                            <span>Mini Fridge</span>
+                                        </div>
+                                        <div class="appliance-power">1.2 kWh/day</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="add-appliance">
+                                    <input type="text" id="newAppliance" placeholder="Add custom appliance">
+                                    <button type="button" id="addApplianceBtn" class="btn btn-primary">Add</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Calculate Button -->
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <button type="button" id="calculateBtn" class="btn btn-primary btn-block">
+                                    <i class="fas fa-calculator"></i> Calculate Solar System Cost
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                
+                <!-- Results Section -->
+                <section class="results-section">
+                    <div class="section-header">
+                        <h2>Your Solar System Estimate</h2>
+                        <p>Detailed breakdown of required components and costs</p>
+                    </div>
+                    <div class="results-container">
+                        <div class="result-item">
+                            <div class="result-label">Solar Panels Needed</div>
+                            <div class="result-value" id="panelsNeeded">0 W</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Battery Storage Required</div>
+                            <div class="result-value" id="batteryStorage">0 kWh</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Inverter Size</div>
+                            <div class="result-value" id="inverterSize">0 W</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Charge Controller</div>
+                            <div class="result-value" id="chargeController">0 A</div>
+                        </div>
+                        
+                        <div class="highlight">
+                            <div>Estimated Total System Cost</div>
+                            <div class="total-cost" id="totalCost">$0</div>
+                            <p>Includes panels, batteries, inverter, charge controller, and installation</p>
+                        </div>
+                        
+                        <div class="cost-breakdown">
+                            <h3>Cost Breakdown</h3>
+                            <div class="cost-item">
+                                <span>Solar Panels</span>
+                                <span id="panelCost">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Battery Storage</span>
+                                <span id="batteryCost">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Inverter & Charge Controller</span>
+                                <span id="inverterCost">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Mounting & Wiring</span>
+                                <span id="mountingCost">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Estimated Installation</span>
+                                <span id="installationCost">$0</span>
+                            </div>
+                        </div>
+                        
+                        <button id="saveEstimateBtn" class="btn btn-secondary btn-block" style="margin-top: 20px;">
+                            <i class="fas fa-download"></i> Save Your Estimate
+                        </button>
+                    </div>
+                </section>
+                
+                <!-- SEO Content Section -->
+                <section class="content-section">
+                    <div class="content-container">
+                        <h2>Complete Guide to Off-Grid Solar Systems for Tiny Homes</h2>
+                        
+                        <p>Building an off-grid solar system for your tiny home is one of the most important investments you'll make. Unlike traditional homes, tiny houses have unique energy requirements and space constraints that affect solar system design and costs. This comprehensive guide will help you understand all the factors that influence the price of a tiny home solar setup.</p>
+                        
+                        <h3>How We Calculate Your Tiny Home Solar System Cost</h3>
+                        <p>Our calculator uses industry-standard formulas to estimate your solar needs:</p>
+                        <ol>
+                            <li><strong>Solar Panel Calculation:</strong> We divide your daily kWh usage by your local peak sun hours, then add a 20% buffer for system inefficiencies and future expansion.</li>
+                            <li><strong>Battery Storage Calculation:</strong> We multiply your daily usage by your desired backup days, then add 20% to account for battery depth of discharge limits.</li>
+                            <li><strong>Inverter Sizing:</strong> We calculate the peak power draw you might experience, typically 1.5x your average hourly usage.</li>
+                            <li><strong>Cost Estimation:</strong> We use current market prices for solar equipment, with lithium batteries at approximately $200/kWh and solar panels at $1.50 per watt.</li>
+                        </ol>
+                        
+                        <h3>Key Factors That Affect Your Solar System Cost</h3>
+                        <p>Several variables significantly impact the final price of your off-grid solar setup:</p>
+                        <ul>
+                            <li><strong>Location and Sun Exposure:</strong> The number of peak sun hours in your area directly affects how many solar panels you need. Arizona residents may need 40% fewer panels than someone in Washington state for the same energy output.</li>
+                            <li><strong>Energy Efficiency:</strong> Tiny homes that use energy-efficient appliances, LED lighting, and good insulation can reduce solar system costs by 30-50%.</li>
+                            <li><strong>Battery Technology:</strong> Lithium-ion batteries (like Tesla Powerwall or EcoFlow) cost more upfront but last longer and require less maintenance than traditional lead-acid batteries.</li>
+                            <li><strong>DIY vs. Professional Installation:</strong> Self-installation can save 20-30% on labor costs but may void warranties and requires technical knowledge.</li>
+                            <li><strong>System Scalability:</strong> Designing a system with room for future expansion adds 10-15% to initial costs but saves money long-term.</li>
+                        </ul>
+                        
+                        <h3>Tiny Home Solar System Components Explained</h3>
+                        <p>Every off-grid solar system consists of four main components:</p>
+                        <ol>
+                            <li><strong>Solar Panels:</strong> Convert sunlight into DC electricity. For tiny homes, 300-400W panels are most common.</li>
+                            <li><strong>Charge Controller:</strong> Regulates voltage from panels to safely charge batteries.</li>
+                            <li><strong>Battery Bank:</strong> Stores energy for use when the sun isn't shining. Lithium batteries are recommended for tiny homes due to their smaller size and weight.</li>
+                            <li><strong>Inverter:</strong> Converts DC electricity from batteries to AC electricity for household appliances.</li>
+                        </ol>
+                        
+                        <h3>2026 Lithium Battery Price Trends</h3>
+                        <p>As we enter 2026, lithium battery prices continue their downward trajectory, making off-grid solar systems more affordable than ever. Key trends to watch:</p>
+                        <ul>
+                            <li><strong>Price Reduction:</strong> Lithium battery costs have dropped from $200/kWh in 2023 to approximately $150/kWh in 2026, representing a 25% decrease</li>
+                            <li><strong>Technology Advancements:</strong> New solid-state and LFP (Lithium Iron Phosphate) batteries offer improved safety and longer lifespans (5,000+ cycles)</li>
+                            <li><strong>Supply Chain Optimization:</strong> Increased manufacturing capacity and improved logistics have reduced lead times and costs</li>
+                            <li><strong>Market Competition:</strong> More manufacturers entering the market, driving prices down while improving quality</li>
+                            <li><strong>Government Support:</strong> Continued incentives for energy storage systems support market growth</li>
+                        </ul>
+                        <p>These trends make 2026 an excellent time to invest in an off-grid solar system for your tiny home, with better technology at lower prices than previous years.</p>
+                    </div>
+                </section>
+                
+                <!-- FAQ Section -->
+                <section class="faq-section">
+                    <div class="section-header">
+                        <h2>Frequently Asked Questions About Tiny Home Solar Systems</h2>
+                        <p>Get answers to common questions about off-grid solar for tiny houses</p>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <span>What is the best type of battery for a tiny home solar system?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>For most tiny homes, lithium-ion batteries (LiFePO4) are the best choice. Brands like EcoFlow, Tesla Powerwall, and Battle Born offer compact, lightweight options with long lifespans (3,000-5,000 cycles). While more expensive upfront than lead-acid batteries (about $200/kWh vs. $100/kWh), they last 3-4 times longer, require no maintenance, and can be discharged deeper (80-90% vs. 50% for lead-acid). This means you need fewer batteries overall, saving space - crucial in tiny homes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <span>How do I calculate peak sun hours for my location?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Peak sun hours vary significantly by location and season. You can use our auto-detect feature to get an estimate based on your geographic location, or consult these averages:</p>
+                                <ul>
+                                    <li><strong>Southwest US (AZ, NV, CA desert):</strong> 5.5-6.5 hours</li>
+                                    <li><strong>Southeast US (FL, GA, TX):</strong> 4.5-5.5 hours</li>
+                                    <li><strong>Midwest & Northeast:</strong> 3.5-4.5 hours</li>
+                                    <li><strong>Pacific Northwest:</strong> 2.5-3.5 hours</li>
+                                </ul>
+                                <p>The National Renewable Energy Laboratory (NREL) provides detailed solar radiation maps. Remember that winter months typically have 30-50% fewer peak sun hours than summer months.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <span>How much does a complete off-grid solar system for a tiny home cost?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A complete off-grid solar system for a typical 250 sq ft tiny home ranges from $8,000 to $20,000, depending on energy needs and components. Our calculator provides detailed breakdowns, but here are average costs:</p>
+                                <ul>
+                                    <li><strong>Basic system (2-4 kWh daily use):</strong> $8,000-$12,000</li>
+                                    <li><strong>Standard system (5-10 kWh daily use):</strong> $12,000-$16,000</li>
+                                    <li><strong>Premium system (10+ kWh daily use):</strong> $16,000-$20,000+</li>
+                                </ul>
+                                <p>These prices include solar panels, lithium batteries, inverter, charge controller, mounting equipment, and professional installation. DIY installation can reduce costs by 20-30%.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Can I power air conditioning with a tiny home solar system?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, but it requires careful planning. A small 5,000 BTU mini-split AC uses about 500W while running, but can surge to 1,500W on startup. To power AC consistently:</p>
+                                <ol>
+                                    <li>You'll need at least 1,000-2,000W of solar panels</li>
+                                    <li>5-10 kWh of battery storage for overnight cooling</li>
+                                    <li>A 3,000W+ inverter to handle startup surges</li>
+                                    <li>Expect system costs to increase by $3,000-$5,000</li>
+                                </ol>
+                                <p>Consider energy-efficient alternatives like evaporative coolers (in dry climates) or maximizing natural ventilation to reduce AC needs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <span>How long do tiny home solar systems last?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>With proper maintenance, a quality solar system should last:</p>
+                                <ul>
+                                    <li><strong>Solar panels:</strong> 25-30 years (most manufacturers guarantee 80% output after 25 years)</li>
+                                    <li><strong>Lithium batteries:</strong> 8-15 years (3,000-5,000 cycles at 80% depth of discharge)</li>
+                                    <li><strong>Inverters:</strong> 10-15 years (quality brands like Victron, Outback)</li>
+                                    <li><strong>Charge controllers:</strong> 10-15 years</li>
+                                </ul>
+                                <p>The battery is typically the first component that needs replacement. Proper system design (not over-discharging batteries, using quality components) significantly extends lifespan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Are there tax credits or incentives for tiny home solar systems?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! The federal solar tax credit (Investment Tax Credit or ITC) allows you to deduct 30% of your solar system cost from your federal taxes through 2032. This applies to both primary and secondary residences (including tiny homes on foundations). Some states offer additional incentives:</p>
+                                <ul>
+                                    <li><strong>California:</strong> Additional rebates through SGIP for battery storage</li>
+                                    <li><strong>New York:</strong> State tax credit up to $5,000</li>
+                                    <li><strong>Massachusetts:</strong> State tax credit of 15% up to $1,000</li>
+                                </ul>
+                                <p>For mobile tiny homes on wheels, incentives vary by state. Always consult a tax professional for your specific situation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Information Section -->
+                <section class="info-section">
+                    <div class="section-header">
+                        <h2>Tiny Home Solar Guide</h2>
+                        <p>Key considerations for your off-grid solar system</p>
+                    </div>
+                    <div class="info-content">
+                        <h3>Why Go Solar for Your Tiny Home?</h3>
+                        <p>Off-grid solar systems provide energy independence for tiny home owners, eliminating monthly utility bills and allowing you to live anywhere without grid connections. Modern solar components are more efficient and affordable than ever.</p>
+                        
+                        <div class="tips-grid">
+                            <div class="tip">
+                                <h4><i class="fas fa-sun"></i> Panel Placement</h4>
+                                <p>For tiny homes, consider rooftop panels or ground-mounted systems that can be adjusted for optimal sun exposure. Tilt angles should match your latitude for maximum year-round production.</p>
+                            </div>
+                            <div class="tip">
+                                <h4><i class="fas fa-battery-full"></i> Battery Choices</h4>
+                                <p>Lithium batteries (like EcoFlow or Tesla Powerwall) offer longer lifespan and better efficiency than traditional lead-acid. For tiny homes, the space and weight savings are particularly valuable.</p>
+                            </div>
+                            <div class="tip">
+                                <h4><i class="fas fa-tools"></i> DIY vs Professional</h4>
+                                <p>While DIY can save 20-30% on costs, professional installation ensures proper setup and often includes warranties. Many tiny homeowners opt for a hybrid approach: self-install with electrician final connections.</p>
+                            </div>
+                            <div class="tip">
+                                <h4><i class="fas fa-dollar-sign"></i> Incentives</h4>
+                                <p>Check for federal tax credits (30% in 2026-2032) and state incentives that can reduce your solar system cost significantly. Some utilities also offer rebates for battery storage systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Right Column: Ads -->
+            <div class="ads-section">
+                <!-- Ad 1: Top Sidebar Ad -->
+                <div class="ad-container">
+                    <div class="ad-label">Advertisement</div>
+                    <div class="ad-placeholder">
+                        <i class="fas fa-ad"></i>
+                        <p>Google Ad Space</p>
+                        <p>300x250</p>
+                    </div>
+                    <p>Solar equipment brands appear here</p>
+                    <div class="brand-logos">
+                        <div class="brand-logo">EcoFlow</div>
+                        <div class="brand-logo">Renogy</div>
+                    </div>
+                </div>
+                
+                <!-- Ad 2: Middle Sidebar Ad -->
+                <div class="ad-container">
+                    <div class="ad-label">Sponsored</div>
+                    <div class="ad-placeholder">
+                        <i class="fas fa-bolt"></i>
+                        <p>Compare Solar Brands</p>
+                        <p>Find the best deals</p>
+                    </div>
+                    <p>Top solar battery brands for tiny homes</p>
+                    <div class="brand-logos">
+                        <div class="brand-logo">Tesla</div>
+                        <div class="brand-logo">Goal Zero</div>
+                        <div class="brand-logo">Jackery</div>
+                    </div>
+                </div>
+                
+                <!-- Ad 3: Bottom Sidebar Ad -->
+                <div class="ad-container">
+                    <div class="ad-label">Advertisement</div>
+                    <div class="ad-placeholder">
+                        <i class="fas fa-solar-panel"></i>
+                        <p>Get Free Solar Quotes</p>
+                        <p>Compare local installers</p>
+                    </div>
+                    <p>Connect with certified solar installers specializing in tiny homes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2026 Tiny Home Solar Calculator. This tool provides estimates only. Actual costs may vary. Always consult with a certified solar installer for your specific needs.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const homeSizeInput = document.getElementById('homeSize');
+        const homeSizeSlider = document.getElementById('homeSizeSlider');
+        const homeSizeValue = document.getElementById('homeSizeValue');
+        
+        const dailyUsageInput = document.getElementById('dailyUsage');
+        const dailyUsageSlider = document.getElementById('dailyUsageSlider');
+        const dailyUsageValue = document.getElementById('dailyUsageValue');
+        
+        const backupDaysInput = document.getElementById('backupDays');
+        const backupDaysSlider = document.getElementById('backupDaysSlider');
+        const backupDaysValue = document.getElementById('backupDaysValue');
+        
+        const sunlightHoursSelect = document.getElementById('sunlightHours');
+        const detectLocationBtn = document.getElementById('detectLocationBtn');
+        const locationResult = document.getElementById('locationResult');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const saveEstimateBtn = document.getElementById('saveEstimateBtn');
+        const newApplianceInput = document.getElementById('newAppliance');
+        const addApplianceBtn = document.getElementById('addApplianceBtn');
+        const applianceContainer = document.getElementById('applianceContainer');
+        const sunHoursGuideLink = document.getElementById('sunHoursGuideLink');
+        
+        // Result Elements
+        const panelsNeeded = document.getElementById('panelsNeeded');
+        const batteryStorage = document.getElementById('batteryStorage');
+        const inverterSize = document.getElementById('inverterSize');
+        const chargeController = document.getElementById('chargeController');
+        const totalCost = document.getElementById('totalCost');
+        const panelCost = document.getElementById('panelCost');
+        const batteryCost = document.getElementById('batteryCost');
+        const inverterCost = document.getElementById('inverterCost');
+        const mountingCost = document.getElementById('mountingCost');
+        const installationCost = document.getElementById('installationCost');
+        
+        // Sync sliders with number inputs
+        homeSizeInput.addEventListener('input', () => {
+            homeSizeSlider.value = homeSizeInput.value;
+            homeSizeValue.textContent = `${homeSizeInput.value} sq ft`;
+        });
+        
+        homeSizeSlider.addEventListener('input', () => {
+            homeSizeInput.value = homeSizeSlider.value;
+            homeSizeValue.textContent = `${homeSizeSlider.value} sq ft`;
+        });
+        
+        dailyUsageInput.addEventListener('input', () => {
+            dailyUsageSlider.value = dailyUsageInput.value;
+            dailyUsageValue.textContent = `${dailyUsageInput.value} kWh`;
+        });
+        
+        dailyUsageSlider.addEventListener('input', () => {
+            dailyUsageInput.value = dailyUsageSlider.value;
+            dailyUsageValue.textContent = `${dailyUsageSlider.value} kWh`;
+        });
+        
+        backupDaysInput.addEventListener('input', () => {
+            backupDaysSlider.value = backupDaysInput.value;
+            backupDaysValue.textContent = `${backupDaysInput.value} days`;
+        });
+        
+        backupDaysSlider.addEventListener('input', () => {
+            backupDaysInput.value = backupDaysSlider.value;
+            backupDaysValue.textContent = `${backupDaysSlider.value} days`;
+        });
+        
+        // Add custom appliance
+        addApplianceBtn.addEventListener('click', () => {
+            const applianceName = newApplianceInput.value.trim();
+            if (!applianceName) return;
+            
+            // Generate a random power consumption between 0.1 and 2.5 kWh/day
+            const randomPower = (Math.random() * 2.4 + 0.1).toFixed(1);
+            
+            const applianceElement = document.createElement('div');
+            applianceElement.className = 'appliance-item';
+            applianceElement.innerHTML = `
+                <div class="appliance-info">
+                    <i class="fas fa-plug"></i>
+                    <span>${applianceName}</span>
+                </div>
+                <div class="appliance-power">${randomPower} kWh/day</div>
+            `;
+            
+            applianceContainer.appendChild(applianceElement);
+            newApplianceInput.value = '';
+            
+            // Update the daily usage with the new appliance
+            const currentUsage = parseFloat(dailyUsageInput.value);
+            dailyUsageInput.value = (currentUsage + parseFloat(randomPower)).toFixed(1);
+            dailyUsageSlider.value = dailyUsageInput.value;
+            dailyUsageValue.textContent = `${dailyUsageInput.value} kWh`;
+        });
+        
+        // Sun hours guide link
+        sunHoursGuideLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('In a production site, this would link to a detailed state-by-state guide of peak sun hours across the US.');
+        });
+        
+        // Location detection for sunlight hours
+        detectLocationBtn.addEventListener('click', detectUserLocation);
+        
+        // State to sunlight hours mapping (simplified for demo)
+        const stateSunHours = {
+            // Southwest: High sun
+            'AZ': 6, 'NV': 5.8, 'NM': 5.9, 'UT': 5.5, 'CA': 5.5,
+            // Southeast: Medium-high sun
+            'TX': 5.2, 'FL': 5.1, 'GA': 4.8, 'AL': 4.7, 'SC': 4.8,
+            // Midwest: Medium sun
+            'IL': 4.2, 'IN': 4.1, 'OH': 4.0, 'MI': 3.9, 'WI': 3.8,
+            // Northeast: Lower sun
+            'NY': 3.9, 'PA': 4.0, 'MA': 3.8, 'CT': 3.9, 'ME': 3.7,
+            // Pacific Northwest: Lowest sun
+            'WA': 3.2, 'OR': 3.5, 'ID': 4.5
+        };
+        
+        // Country defaults
+        const countrySunHours = {
+            'US': 4.5, 'CA': 3.8, 'UK': 3.0, 'AU': 5.2,
+            'DE': 3.2, 'FR': 3.8, 'ES': 5.0, 'IT': 4.7
+        };
+        
+        // Simulated location detection
+        const simulatedLocations = [
+            { state: 'CA', city: 'Los Angeles', sunHours: 5.5 },
+            { state: 'NY', city: 'New York', sunHours: 3.9 },
+            { state: 'TX', city: 'Austin', sunHours: 5.2 },
+            { state: 'WA', city: 'Seattle', sunHours: 3.2 },
+            { state: 'FL', city: 'Miami', sunHours: 5.1 },
+            { state: 'CO', city: 'Denver', sunHours: 5.3 }
+        ];
+        
+        // Detect user location (simulated for demo)
+        function detectUserLocation() {
+            // Show loading
+            locationResult.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detecting your location...';
+            detectLocationBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // For demo purposes, randomly pick a simulated location
+                // In production, you would use a real geolocation API
+                const randomLocation = simulatedLocations[Math.floor(Math.random() * simulatedLocations.length)];
+                
+                // Find the closest sunlight hours option
+                const sunHoursValue = Math.round(randomLocation.sunHours);
+                const optionValues = [2, 3, 4, 5, 6];
+                const closestValue = optionValues.reduce((prev, curr) => {
+                    return Math.abs(curr - randomLocation.sunHours) < Math.abs(prev - randomLocation.sunHours) ? curr : prev;
+                });
+                
+                // Set the dropdown value
+                sunlightHoursSelect.value = closestValue;
+                
+                // Show result
+                locationResult.innerHTML = `Detected: ${randomLocation.city}, ${randomLocation.state} (~${randomLocation.sunHours} peak sun hours)`;
+                detectLocationBtn.disabled = false;
+                
+                // Recalculate with new sun hours
+                calculateSolarSystem();
+                
+                // For a real implementation, you would use:
+                // fetch('https://ipapi.co/json/')
+                //   .then(response => response.json())
+                //   .then(data => {
+                //     const state = data.region_code;
+                //     const country = data.country_code;
+                //     // Determine sun hours based on location
+                //   });
+                
+            }, 1500);
+        }
+        
+        // Calculate solar system
+        calculateBtn.addEventListener('click', calculateSolarSystem);
+        
+        // Save estimate
+        saveEstimateBtn.addEventListener('click', () => {
+            alert('Estimate saved! This feature would typically generate a PDF or email the results in a production environment.');
+        });
+        
+        // Initial calculation on page load
+        document.addEventListener('DOMContentLoaded', calculateSolarSystem);
+        
+        // Calculation function
+        function calculateSolarSystem() {
+            // Get values from inputs
+            const homeSize = parseFloat(homeSizeInput.value);
+            const dailyUsage = parseFloat(dailyUsageInput.value);
+            const backupDays = parseFloat(backupDaysInput.value);
+            const sunlightHours = parseFloat(sunlightHoursSelect.value);
+            
+            // Calculate solar panel requirements (in watts)
+            // Formula: (Daily kWh * 1000) / Sunlight hours * 1.2 (inefficiency factor)
+            const panelWatts = Math.ceil((dailyUsage * 1000) / sunlightHours * 1.2);
+            
+            // Calculate battery storage (in kWh)
+            // Formula: Daily usage * backup days * 1.2 (depth of discharge buffer)
+            const batteryKwh = (dailyUsage * backupDays * 1.2).toFixed(1);
+            
+            // Calculate inverter size (in watts)
+            // Assume peak load is 1.5 times average hourly usage
+            const inverterWatts = Math.ceil((dailyUsage * 1000) / 24 * 1.5);
+            
+            // Calculate charge controller (in amps)
+            // Formula: Panel watts / System voltage (assume 24V for tiny homes)
+            const controllerAmps = Math.ceil(panelWatts / 24);
+            
+            // Calculate costs
+            // Panel cost: $1.5 per watt
+            const panelCostValue = panelWatts * 1.5;
+            
+            // Battery cost: $200 per kWh for lithium
+            const batteryCostValue = batteryKwh * 200;
+            
+            // Inverter + charge controller cost
+            const inverterCostValue = inverterWatts * 0.5 + controllerAmps * 15;
+            
+            // Mounting and wiring cost
+            const mountingCostValue = homeSize * 2 + panelWatts * 0.3;
+            
+            // Installation cost (20% of equipment cost)
+            const equipmentCost = panelCostValue + batteryCostValue + inverterCostValue + mountingCostValue;
+            const installationCostValue = equipmentCost * 0.2;
+            
+            // Total cost
+            const totalCostValue = equipmentCost + installationCostValue;
+            
+            // Update UI with calculated values
+            panelsNeeded.textContent = `${panelWatts.toLocaleString()} W`;
+            batteryStorage.textContent = `${batteryKwh} kWh`;
+            inverterSize.textContent = `${inverterWatts.toLocaleString()} W`;
+            chargeController.textContent = `${controllerAmps} A`;
+            
+            totalCost.textContent = `$${totalCostValue.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+            panelCost.textContent = `$${panelCostValue.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+            batteryCost.textContent = `$${batteryCostValue.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+            inverterCost.textContent = `$${inverterCostValue.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+            mountingCost.textContent = `$${mountingCostValue.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+            installationCost.textContent = `$${installationCostValue.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+        }
+    </script>
+</body>
+</html>

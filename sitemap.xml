@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 主页 - 最高优先级 -->
+    <url>
+        <loc>https://yourdomain.com/index.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- 博客主页 -->
+    <url>
+        <loc>https://yourdomain.com/blog/index.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- 博客文章 - 按重要性排序 -->
+    
+    <!-- 特色文章：电池比较指南 -->
+    <url>
+        <loc>https://yourdomain.com/blog/lifepo4-vs-lead-acid-for-offgrid-living.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- 产品评测：EcoFlow vs Tesla -->
+    <url>
+        <loc>https://yourdomain.com/blog/EcoFlow-Delta-Pro-vs-Tesla-Powerwall-for-Tiny-Homes.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- 最佳离网太阳能套件 -->
+    <url>
+        <loc>https://yourdomain.com/blog/best-offgrid-solar-kits-for-tiny-homes-2025.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- 太阳能电池尺寸指南 -->
+    <url>
+        <loc>https://yourdomain.com/blog/solar-battery-sizing-guide-for-tiny-homes.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- 离网太阳能安装成本分解 -->
+    <url>
+        <loc>https://yourdomain.com/blog/off-grid-solar-installation-cost-breakdown.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- 250平方英尺小房子的太阳能板数量 -->
+    <url>
+        <loc>https://yourdomain.com/blog/how-many-solar-panels-for-250-sq-ft-tiny-house.html</loc>
+        <lastmod>2026-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>

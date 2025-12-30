@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Battery Sizing Guide for Tiny Homes | Calculate Your Off-grid Storage Needs</title>
+    <meta name="description" content="Step-by-step guide to calculate the perfect battery bank size for your tiny home solar system. Learn how to determine your energy needs and choose the right battery capacity.">
+    <meta name="keywords" content="solar battery sizing, tiny home battery calculator, off-grid battery capacity, solar storage calculation, battery bank sizing, energy storage for tiny house">
+    <meta name="author" content="Tiny Home Solar Experts">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #4CAF50;
+            --primary-dark: #1B5E20;
+            --secondary: #FF9800;
+            --secondary-light: #FFB74D;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --lifepo4-color: #2196F3;
+            --lead-acid-color: #FF5722;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航样式 */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .main-nav {
+            background-color: var(--primary-dark);
+            padding: 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 文章页面特定样式 */
+        .article-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .article-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .article-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        @media (max-width: 992px) {
+            .article-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .article-body {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .article-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .sidebar-widget h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .article-body h2 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            font-size: 28px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .article-body h3 {
+            color: var(--primary-dark);
+            margin: 25px 0 12px;
+            font-size: 22px;
+        }
+        
+        .article-body h4 {
+            color: var(--dark);
+            margin: 20px 0 10px;
+            font-size: 18px;
+        }
+        
+        .article-body p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        
+        .article-body ul, .article-body ol {
+            margin-left: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .article-body li {
+            margin-bottom: 10px;
+        }
+        
+        /* 电池计算器特定样式 */
+        .calculator-box {
+            background-color: #E3F2FD;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 4px solid var(--lifepo4-color);
+        }
+        
+        .calculator-step {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .calculator-step h3 {
+            color: var(--lifepo4-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--lifepo4-color);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .appliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .appliance-card {
+            background-color: var(--light);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .appliance-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 3px 8px rgba(46, 125, 50, 0.1);
+        }
+        
+        .appliance-card.selected {
+            background-color: #E8F5E9;
+            border-color: var(--primary);
+        }
+        
+        .appliance-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .appliance-icon {
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .appliance-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .appliance-watts {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .result-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .result-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .result-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .breakdown-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .breakdown-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .breakdown-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .battery-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .battery-option {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .battery-option.lifepo4 {
+            border-top: 4px solid var(--lifepo4-color);
+        }
+        
+        .battery-option.lead-acid {
+            border-top: 4px solid var(--lead-acid-color);
+        }
+        
+        .battery-option h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+        
+        .battery-option.lifepo4 h4 {
+            color: var(--lifepo4-color);
+        }
+        
+        .battery-option.lead-acid h4 {
+            color: var(--lead-acid-color);
+        }
+        
+        .battery-specs {
+            margin-top: 15px;
+        }
+        
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            color: var(--gray);
+        }
+        
+        .spec-value {
+            font-weight: 600;
+        }
+        
+        .lifepo4-value {
+            color: var(--lifepo4-color);
+        }
+        
+        .lead-acid-value {
+            color: var(--lead-acid-color);
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #F57C00;
+        }
+        
+        .btn-full {
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .tip-box {
+            background-color: #FFF9C4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #FFD600;
+        }
+        
+        .warning-box {
+            background-color: #FFEBEE;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #F44336;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .article-title {
+                font-size: 28px;
+            }
+            
+            .article-body {
+                padding: 25px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .appliance-grid, .result-breakdown, .battery-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .related-articles {
+            margin-top: 40px;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .related-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-card-img {
+            height: 160px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary);
+        }
+        
+        .related-card-content {
+            padding: 20px;
+        }
+        
+        .related-card h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .related-card a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .related-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight-box {
+            background-color: #E8F5E9;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Schema.org markup for article -->
+    <div class="schema-markup" style="display: none;">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Solar Battery Sizing Guide for Tiny Homes",
+          "description": "Step-by-step guide to calculate the perfect battery bank size for your tiny home solar system. Learn how to determine your energy needs and choose the right battery capacity.",
+          "image": "https://tinyhomesolarcalculator.com/images/battery-sizing-guide.jpg",
+          "author": {
+            "@type": "Organization",
+            "name": "Tiny Home Solar Experts"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Tiny Home Solar Calculator",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://tinyhomesolarcalculator.com/logo.png"
+            }
+          },
+          "datePublished": "2026-04-15",
+          "dateModified": "2026-04-15"
+        }
+        </script>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-solar-panel"></i>
+                        <div>
+                            <h1>Tiny Home Solar <span>Calculator</span></h1>
+                            <p class="tagline">Calculate your off-grid solar system costs</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="brand-logos">
+                    <div class="brand-logo">EcoFlow</div>
+                    <div class="brand-logo">Battle Born</div>
+                    <div class="brand-logo">Renogy</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="../index.html#solarCalculator"><i class="fas fa-calculator"></i> Calculator</a></li>
+                <li><a href="lifepo4-vs-lead-acid-for-offgrid-living.html"><i class="fas fa-book"></i> Solar Guides</a></li>
+                <li><a href="../blog/best-offgrid-solar-kits-for-tiny-homes-2025.html"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 文章标题区域 -->
+    <div class="article-header">
+        <div class="container">
+            <h1 class="article-title">Solar Battery Sizing Guide for Tiny Homes</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> April 15, 2026</span>
+                <span><i class="far fa-clock"></i> 10 min read</span>
+                <span><i class="fas fa-user-edit"></i> By Tiny Home Solar Experts</span>
+                <span><i class="fas fa-tag"></i> Batteries, Off-grid, Sizing, Calculator</span>
+            </div>
+            <p style="font-size: 18px; opacity: 0.9;">Step-by-step guide to calculate the perfect battery bank size for your tiny home. Avoid costly mistakes by properly sizing your energy storage.</p>
+        </div>
+    </div>
+
+    <!-- 文章内容 -->
+    <div class="container">
+        <div class="article-content">
+            <!-- 文章主体 -->
+            <div class="article-body">
+                <p>One of the most common mistakes in off-grid solar design is undersizing or oversizing your battery bank. Too small, and you'll run out of power on cloudy days. Too large, and you'll waste money on batteries you don't need and require more solar panels to charge them.</p>
+                
+                <p>This comprehensive guide will walk you through the exact calculations needed to determine the ideal battery capacity for your tiny home solar system. We'll also show you how to use our <a href="../index.html#solarCalculator" style="color: var(--primary); font-weight: 600;">solar calculator</a> for precise, automated calculations.</p>
+                
+                <div class="highlight-box">
+                    <h3 style="color: var(--primary); margin-top: 0;">Quick Tip</h3>
+                    <p>For a typical 200-400 sq ft tiny home with modest appliances, most systems need between <strong>5-15 kWh</strong> of battery storage. But your exact needs depend on your energy consumption, location, and backup requirements. Use the steps below or try our <a href="../index.html#solarCalculator" style="color: var(--primary); font-weight: 600;">automated calculator</a> for precise results.</p>
+                </div>
+                
+                <h2>Why Proper Battery Sizing Matters</h2>
+                
+                <p>Proper battery sizing is critical for three main reasons:</p>
+                
+                <div class="pros-cons-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+                    <div class="pros-list" style="background-color: #E8F5E9; border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 8px 8px 0;">
+                        <h4><i class="fas fa-check-circle"></i> Benefits of Right Sizing</h4>
+                        <ul>
+                            <li><strong>Reliable power</strong> through consecutive cloudy days</li>
+                            <li><strong>Optimal cost</strong> - not paying for unused capacity</li>
+                            <li><strong>Longer battery life</strong> - properly sized batteries last longer</li>
+                            <li><strong>Efficient charging</strong> - solar panels can fully recharge batteries</li>
+                        </ul>
+                    </div>
+                    <div class="cons-list" style="background-color: #FFEBEE; border-left: 4px solid #F44336; padding: 20px; border-radius: 0 8px 8px 0;">
+                        <h4><i class="fas fa-times-circle"></i> Problems with Wrong Sizing</h4>
+                        <ul>
+                            <li><strong>Power outages</strong> when batteries drain too quickly</li>
+                            <li><strong>Wasted money</strong> on oversized systems</li>
+                            <li><strong>Shortened battery lifespan</strong> from deep discharges</li>
+                            <li><strong>Insufficient solar</strong> to recharge oversized banks</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2>Step-by-Step Battery Sizing Calculation</h2>
+                
+                <div class="calculator-box">
+                    <h2 style="color: var(--lifepo4-color); margin-top: 0;"><i class="fas fa-calculator"></i> Battery Sizing Calculator Guide</h2>
+                    <p>Follow these 4 steps to calculate your battery needs manually. For automatic calculations, <a href="../index.html#solarCalculator" style="color: var(--lifepo4-color); font-weight: 600;">use our solar calculator</a>.</p>
+                    
+                    <div class="calculator-step">
+                        <h3><span class="step-number">1</span> Calculate Your Daily Energy Consumption</h3>
+                        <p>List all electrical appliances you'll use and calculate their daily watt-hour consumption:</p>
+                        
+                        <div class="appliance-grid">
+                            <div class="appliance-card selected">
+                                <div class="appliance-header">
+                                    <div class="appliance-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div>
+                                        <div class="appliance-name">LED Lights</div>
+                                        <div class="appliance-watts">10W each</div>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label>Quantity × Hours/day:</label>
+                                    <input type="text" value="5 lights × 4 hours" readonly>
+                                </div>
+                                <div style="font-weight: 600; color: var(--primary);">200 Wh/day</div>
+                            </div>
+                            
+                            <div class="appliance-card">
+                                <div class="appliance-header">
+                                    <div class="appliance-icon"><i class="fas fa-tv"></i></div>
+                                    <div>
+                                        <div class="appliance-name">TV & Entertainment</div>
+                                        <div class="appliance-watts">50-150W</div>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label>Wattage × Hours:</label>
+                                    <input type="text" value="80W × 3 hours" readonly>
+                                </div>
+                                <div style="font-weight: 600; color: var(--primary);">240 Wh/day</div>
+                            </div>
+                            
+                            <div class="appliance-card">
+                                <div class="appliance-header">
+                                    <div class="appliance-icon"><i class="fas fa-snowflake"></i></div>
+                                    <div>
+                                        <div class="appliance-name">Refrigerator</div>
+                                        <div class="appliance-watts">50-150W</div>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label>Wattage × Runtime:</label>
+                                    <input type="text" value="100W × 8 hours" readonly>
+                                </div>
+                                <div style="font-weight: 600; color: var(--primary);">800 Wh/day</div>
+                            </div>
+                            
+                            <div class="appliance-card">
+                                <div class="appliance-header">
+                                    <div class="appliance-icon"><i class="fas fa-laptop"></i></div>
+                                    <div>
+                                        <div class="appliance-name">Laptop/Computer</div>
+                                        <div class="appliance-watts">30-100W</div>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label>Wattage × Hours:</label>
+                                    <input type="text" value="60W × 4 hours" readonly>
+                                </div>
+                                <div style="font-weight: 600; color: var(--primary);">240 Wh/day</div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Total Daily Energy Consumption:</label>
+                            <input type="text" value="1,480 Wh/day (1.48 kWh/day)" style="font-weight: 700; color: var(--primary);" readonly>
+                        </div>
+                        
+                        <p style="margin-top: 15px; font-size: 14px; color: var(--gray);"><i class="fas fa-info-circle"></i> <strong>Tip:</strong> Check appliance labels for wattage ratings, or use a watt meter for accurate measurements.</p>
+                    </div>
+                    
+                    <div class="calculator-step">
+                        <h3><span class="step-number">2</span> Determine Your Autonomy Days (Backup Days)</h3>
+                        <p>How many consecutive cloudy days do you want to power through without solar input?</p>
+                        
+                        <div class="input-group">
+                            <label for="autonomy-days">Autonomy Days:</label>
+                            <select id="autonomy-days">
+                                <option value="1">1 day (minimal backup)</option>
+                                <option value="2" selected>2 days (typical for most regions)</option>
+                                <option value="3">3 days (conservative/cloudy regions)</option>
+                                <option value="4">4+ days (maximum reliability)</option>
+                            </select>
+                        </div>
+                        
+                        <div style="background-color: #F5F5F5; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                            <p style="margin: 0; font-size: 15px;"><strong>Calculation:</strong> Daily Consumption × Autonomy Days = Total Energy Needed</p>
+                            <p style="margin: 5px 0 0 0; font-weight: 700; color: var(--primary);">1.48 kWh/day × 2 days = 2.96 kWh</p>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-step">
+                        <h3><span class="step-number">3</span> Account for Depth of Discharge (DoD)</h3>
+                        <p>Batteries shouldn't be fully discharged. Apply the appropriate Depth of Discharge limit based on your battery type:</p>
+                        
+                        <div class="input-group">
+                            <label for="battery-type">Select Battery Type:</label>
+                            <select id="battery-type">
+                                <option value="lifepo4" selected>LiFePO4 (80-90% DoD)</option>
+                                <option value="lead-acid">Lead Acid (50% DoD)</option>
+                                <option value="agm">AGM (60% DoD)</option>
+                                <option value="gel">GEL (50% DoD)</option>
+                            </select>
+                        </div>
+                        
+                        <div style="background-color: #F5F5F5; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                            <p style="margin: 0; font-size: 15px;"><strong>Calculation:</strong> Total Energy Needed ÷ DoD = Required Battery Capacity</p>
+                            <p style="margin: 5px 0 0 0; font-weight: 700; color: var(--primary);">2.96 kWh ÷ 0.85 = 3.48 kWh</p>
+                            <p style="margin: 5px 0 0 0; font-size: 14px; color: var(--gray);"><em>Using 85% DoD for LiFePO4 batteries</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-step">
+                        <h3><span class="step-number">4</span> Apply System Efficiency and Safety Factors</h3>
+                        <p>Account for energy losses in the system (inverter, wiring, temperature):</p>
+                        
+                        <div class="input-group">
+                            <label for="efficiency">System Efficiency Factor:</label>
+                            <select id="efficiency">
+                                <option value="0.85">85% efficiency (typical)</option>
+                                <option value="0.9" selected>90% efficiency (good system)</option>
+                                <option value="0.95">95% efficiency (LiFePO4 + high-end components)</option>
+                                <option value="0.8">80% efficiency (lead-acid + basic components)</option>
+                            </select>
+                        </div>
+                        
+                        <div style="background-color: #F5F5F5; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                            <p style="margin: 0; font-size: 15px;"><strong>Final Calculation:</strong> Required Capacity ÷ Efficiency = Final Battery Bank Size</p>
+                            <p style="margin: 5px 0 0 0; font-weight: 700; color: var(--primary);">3.48 kWh ÷ 0.9 = 3.87 kWh</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box">
+                        <div class="result-title">Your Recommended Battery Bank Size</div>
+                        <div class="result-value">3.9 kWh</div>
+                        <p>This is the usable capacity needed for your tiny home system.</p>
+                        
+                        <div class="result-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Daily Consumption</div>
+                                <div class="breakdown-value">1.48 kWh</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Autonomy Days</div>
+                                <div class="breakdown-value">2 days</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Depth of Discharge</div>
+                                <div class="breakdown-value">85%</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">System Efficiency</div>
+                                <div class="breakdown-value">90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <h3 style="color: #FF8F00; margin-top: 0;"><i class="fas fa-lightbulb"></i> Pro Tip: Start with a Power Audit</h3>
+                    <p>The most accurate way to determine your energy needs is to conduct a real power audit before building your system. Use a <strong>Kill-A-Watt meter</strong> to measure actual consumption of your appliances over a typical week. This eliminates guesswork and ensures your system is perfectly sized.</p>
+                </div>
+                
+                <h2>Choosing Your Battery Bank Configuration</h2>
+                
+                <p>Once you know your required capacity, you need to decide on battery configuration:</p>
+                
+                <div class="battery-options">
+                    <div class="battery-option lifepo4">
+                        <h4><i class="fas fa-bolt" style="color: var(--lifepo4-color);"></i> LiFePO4 Battery Example</h4>
+                        <p>For our example system needing 3.9 kWh:</p>
+                        
+                        <div class="battery-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Battery Model</span>
+                                <span class="spec-value lifepo4-value">Battle Born 100Ah 12V</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Capacity per battery</span>
+                                <span class="spec-value">1.28 kWh (12V × 100Ah)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Usable capacity (90% DoD)</span>
+                                <span class="spec-value">1.15 kWh each</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Number needed</span>
+                                <span class="spec-value lifepo4-value">4 batteries</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Total usable capacity</span>
+                                <span class="spec-value lifepo4-value">4.6 kWh</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Configuration</span>
+                                <span class="spec-value">2 series × 2 parallel (24V system)</span>
+                            </div>
+                        </div>
+                        
+                        <a href="lifepo4-vs-lead-acid-for-offgrid-living.html" class="btn btn-primary btn-full">Learn More About LiFePO4</a>
+                    </div>
+                    
+                    <div class="battery-option lead-acid">
+                        <h4><i class="fas fa-car-battery" style="color: var(--lead-acid-color);"></i> Lead Acid Battery Example</h4>
+                        <p>For the same 3.9 kWh requirement:</p>
+                        
+                        <div class="battery-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Battery Model</span>
+                                <span class="spec-value lead-acid-value">Trojan T-105 6V 225Ah</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Capacity per battery</span>
+                                <span class="spec-value">1.35 kWh (6V × 225Ah)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Usable capacity (50% DoD)</span>
+                                <span class="spec-value">0.68 kWh each</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Number needed</span>
+                                <span class="spec-value lead-acid-value">8 batteries</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Total usable capacity</span>
+                                <span class="spec-value lead-acid-value">5.4 kWh</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Configuration</span>
+                                <span class="spec-value">4 series × 2 parallel (24V system)</span>
+                            </div>
+                        </div>
+                        
+                        <a href="lifepo4-vs-lead-acid-for-offgrid-living.html" class="btn btn-primary btn-full">Compare Battery Types</a>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <h3 style="color: #F44336; margin-top: 0;"><i class="fas fa-exclamation-triangle"></i> Common Sizing Mistakes to Avoid</h3>
+                    <ul>
+                        <li><strong>Forgetting efficiency losses:</strong> Always add 10-15% for inverter and wiring losses</li>
+                        <li><strong>Ignoring temperature effects:</strong> Battery capacity decreases in cold temperatures</li>
+                        <li><strong>Undersizing for seasonal variations:</strong> Winter typically requires more energy for lighting and heating</li>
+                        <li><strong>Overlooking future expansion:</strong> Add 20-30% capacity if you plan to add more appliances later</li>
+                        <li><strong>Confusing battery voltage with capacity:</strong> Amp-hours (Ah) alone don't tell the whole story - calculate watt-hours (Wh)</li>
+                    </ul>
+                </div>
+                
+                <h2>System Voltage Considerations</h2>
+                
+                <p>Your battery bank voltage affects system efficiency, cost, and safety:</p>
+                
+                <table class="comparison-table" style="width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <thead>
+                        <tr>
+                            <th style="background-color: var(--primary); color: white; padding: 15px; text-align: left;">System Voltage</th>
+                            <th style="background-color: var(--primary); color: white; padding: 15px; text-align: left;">Best For</th>
+                            <th style="background-color: var(--primary); color: white; padding: 15px; text-align: left;">Pros</th>
+                            <th style="background-color: var(--primary); color: white; padding: 15px; text-align: left;">Cons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color: #f8f9fa;">
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;"><strong>12V</strong></td>
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;">Small systems (&lt;2 kW), RVs, campers</td>
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;">Simple, compatible with 12V appliances</td>
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;">High current, thicker wires needed for &gt;1.5 kW</td>
+                        </tr>
+                        <tr style="background-color: white;">
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;"><strong>24V</strong></td>
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;">Most tiny homes (2-4 kW)</td>
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;">Better efficiency, smaller wires, common inverter availability</td>
+                            <td style="padding: 15px; border-bottom: 1px solid #e9ecef;">Need 24V appliances or DC-DC converters for 12V devices</td>
+                        </tr>
+                        <tr style="background-color: #f8f9fa;">
+                            <td style="padding: 15px;"><strong>48V</strong></td>
+                            <td style="padding: 15px;">Large systems (&gt;4 kW), homes with AC</td>
+                            <td style="padding: 15px;">Highest efficiency, smallest wire sizes, best for long cable runs</td>
+                            <td style="padding: 15px;">More complex, fewer battery options, needs voltage converters</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="cta-box">
+                    <h2 style="color: white;">Need Help with Your Calculations?</h2>
+                    <p style="margin-bottom: 20px;">Our <a href="../index.html#solarCalculator" style="color: white; text-decoration: underline; font-weight: 600;">solar calculator</a> automates all these calculations and provides personalized recommendations for your specific tiny home and location.</p>
+                    <a href="../index.html#solarCalculator" class="btn btn-secondary">Use the Automated Calculator</a>
+                </div>
+                
+                <h2>Seasonal Adjustments and Location Factors</h2>
+                
+                <p>Your location significantly impacts battery sizing due to:</p>
+                
+                <div class="pros-cons-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+                    <div class="pros-list" style="background-color: #E3F2FD; border-left: 4px solid var(--lifepo4-color); padding: 20px; border-radius: 0 8px 8px 0;">
+                        <h4><i class="fas fa-sun"></i> Sunny Regions (SW USA, Mediterranean)</h4>
+                        <ul>
+                            <li><strong>Fewer autonomy days needed</strong> (1-2 days typically sufficient)</li>
+                            <li>Smaller battery banks possible</li>
+                            <li>More consistent solar production year-round</li>
+                            <li>Less seasonal adjustment required</li>
+                        </ul>
+                    </div>
+                    <div class="cons-list" style="background-color: #FFF3E0; border-left: 4px solid var(--secondary); padding: 20px; border-radius: 0 8px 8px 0;">
+                        <h4><i class="fas fa-cloud"></i> Cloudy/Seasonal Regions (Pacific NW, Northern climates)</h4>
+                        <ul>
+                            <li><strong>More autonomy days needed</strong> (3-4 days recommended)</li>
+                            <li>Larger battery banks required</li>
+                            <li>Winter energy consumption typically higher</li>
+                            <li>Consider generator backup for extended cloudy periods</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2>Final Recommendations</h2>
+                
+                <div class="highlight-box">
+                    <h3 style="color: var(--primary); margin-top: 0;">Battery Sizing Checklist</h3>
+                    <p>Before finalizing your battery purchase:</p>
+                    <ol>
+                        <li><strong>Calculate daily energy needs</strong> accurately with real measurements if possible</li>
+                        <li><strong>Choose appropriate autonomy days</strong> based on your location and reliability needs</li>
+                        <li><strong>Apply correct Depth of Discharge</strong> for your battery chemistry</li>
+                        <li><strong>Account for system efficiency losses</strong> (typically 10-15%)</li>
+                        <li><strong>Consider future expansion</strong> - add 20-30% capacity if you might add appliances</li>
+                        <li><strong>Select appropriate system voltage</strong> (24V recommended for most tiny homes)</li>
+                        <li><strong>Verify calculations</strong> with our <a href="../index.html#solarCalculator" style="color: var(--primary); font-weight: 600;">solar calculator</a> or a professional</li>
+                    </ol>
+                    
+                    <p style="margin-top: 15px;">Remember: It's better to slightly oversize (10-20%) than undersize your battery bank. Battery capacity is the foundation of your off-grid system's reliability.</p>
+                </div>
+                
+                <div style="text-align: center; margin: 40px 0; padding: 25px; background-color: #F8F9FA; border-radius: 8px;">
+                    <h3 style="color: var(--primary);">Still Unsure About Your Battery Size?</h3>
+                    <p>Join thousands of tiny homeowners who have used our calculator to design their perfect solar system.</p>
+                    <a href="../index.html#solarCalculator" class="btn btn-primary" style="margin-top: 15px;">Calculate My Battery Needs</a>
+                </div>
+            </div>
+            
+            <!-- 侧边栏 -->
+            <div class="article-sidebar">
+                <!-- 计算器CTA -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-calculator"></i> Automated Calculator</h3>
+                    <p>Skip the manual calculations! Our solar calculator does all the math for you based on your specific appliances and location.</p>
+                    <a href="../index.html#solarCalculator" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Use Solar Calculator</a>
+                </div>
+                
+                <!-- 相关文章 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-book"></i> Related Guides</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div>
+                            <h4 style="font-size: 16px; margin-bottom: 5px;">LiFePO4 vs. Lead Acid Batteries</h4>
+                            <a href="lifepo4-vs-lead-acid-for-offgrid-living.html" style="font-size: 14px; color: var(--primary);">Read Comparison →</a>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 16px; margin-bottom: 5px;">Best Solar Kits for Tiny Homes 2025</h4>
+                            <a href="../blog/best-offgrid-solar-kits-for-tiny-homes-2025.html" style="font-size: 14px; color: var(--primary);">Read Review →</a>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 16px; margin-bottom: 5px;">Solar Panels for 250 sq ft Tiny House</h4>
+                            <a href="how-many-solar-panels-for-250-sq-ft-tiny-house.html" style="font-size: 14px; color: var(--primary);">Read Guide →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 快速参考 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-bolt"></i> Typical Tiny Home Consumption</h3>
+                    <div style="font-size: 14px;">
+                        <div style="margin-bottom: 10px;">
+                            <div style="font-weight: 600; color: var(--primary);">Minimalist System</div>
+                            <div style="color: var(--gray);">2-4 kWh/day</div>
+                            <div style="font-size: 12px;">Lights, phone charging, small fridge</div>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <div style="font-weight: 600; color: var(--primary);">Average System</div>
+                            <div style="color: var(--gray);">4-8 kWh/day</div>
+                            <div style="font-size: 12px;">Adds TV, laptop, water pump, fans</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; color: var(--primary);">Full Comfort System</div>
+                            <div style="color: var(--gray);">8-15 kWh/day</div>
+                            <div style="font-size: 12px;">Adds AC, electric cooking, washer</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 广告位 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-ad"></i> Sponsored</h3>
+                    <div style="background-color: var(--light-gray); border-radius: 8px; padding: 15px; text-align: center;">
+                        <p style="font-size: 14px; margin-bottom: 10px;">Get personalized battery recommendations from our partners</p>
+                        <button class="btn btn-primary" style="width: 100%;">Get Free Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 相关文章网格 -->
+        <div class="related-articles">
+            <h2 style="color: var(--primary); margin-bottom: 20px;">More Tiny Home Solar Guides</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <div class="related-card-img" style="background-color: #E8F5E9;">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <div class="related-card-content">
+                        <h4>LiFePO4 vs. Lead Acid: Complete Comparison</h4>
+                        <a href="lifepo4-vs-lead-acid-for-offgrid-living.html">Read Comparison →</a>
+                    </div>
+                </div>
+                <div class="related-card">
+                    <div class="related-card-img" style="background-color: #FFF3E0;">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="related-card-content">
+                        <h4>Best Off-grid Solar Kits for Tiny Homes 2025</h4>
+                        <a href="../blog/best-offgrid-solar-kits-for-tiny-homes-2025.html">Read Review →</a>
+                    </div>
+                </div>
+                <div class="related-card">
+                    <div class="related-card-img" style="background-color: #E3F2FD;">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="related-card-content">
+                        <h4>How Many Solar Panels for a 250 sq ft Tiny House?</h4>
+                        <a href="how-many-solar-panels-for-250-sq-ft-tiny-house.html">Read Guide →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 返回博客主页 -->
+    <div class="back-to-blog" style="text-align: center; margin: 40px 0;">
+        <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; background-color: var(--primary); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s;">
+            <i class="fas fa-arrow-left"></i>
+            Back to Blog Homepage
+        </a>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2026 Tiny Home Solar Calculator. This guide provides general information only. Always consult with solar professionals for your specific project.</p>
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: white; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: white; text-decoration: none;">Terms of Use</a>
+                    <a href="#" style="color: white; text-decoration: none;">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 电器卡片选择
+            const applianceCards = document.querySelectorAll('.appliance-card');
+            applianceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
+            
+            // 计算器交互
+            const autonomySelect = document.getElementById('autonomy-days');
+            const batteryTypeSelect = document.getElementById('battery-type');
+            const efficiencySelect = document.getElementById('efficiency');
+            
+            function updateCalculations() {
+                // 这里可以添加更复杂的计算逻辑
+                console.log('更新计算...');
+            }
+            
+            autonomySelect.addEventListener('change', updateCalculations);
+            batteryTypeSelect.addEventListener('change', updateCalculations);
+            efficiencySelect.addEventListener('change', updateCalculations);
+        });
+    </script>
+</body>
+</html>

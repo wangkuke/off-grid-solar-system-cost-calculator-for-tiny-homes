@@ -1,0 +1,38 @@
+# robots.txt for Off Grid Solar System Cost Calculator for Tiny Homes
+# Created: 2026-12-30
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin or private directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Allow all main content
+Allow: /index.html
+Allow: /blog/
+Allow: /blog/index.html
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl delay (optional - adjust based on server capacity)
+# Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block image search bots from non-image content
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Bingbot-Image
+Disallow: /
