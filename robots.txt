@@ -15,7 +15,7 @@ Allow: /blog/
 Allow: /blog/index.html
 
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://solar.opai.online/sitemap.xml
 
 # Crawl delay (optional - adjust based on server capacity)
 # Crawl-delay: 1
